@@ -1,6 +1,6 @@
 {
   "name": "octopus-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NodeJS package to expose Octopus API to multiples projects",
   "main": "index.js",
   "scripts": {

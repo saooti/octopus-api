@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 var fetchInitState = function fetchInitState() {
   return new Promise((resolve, reject) => {

@@ -1,5 +1,5 @@
-import axios from 'axios';
-var fetchHelper = require('../helper/fetch');
+const axios = require('axios');
+const fetchHelper = require('../helper/fetch');
 
 var fetchCategories = function fetchCategories(apiUrl, parameters) {
   return new Promise((resolve, reject) => {

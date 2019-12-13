@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 var fetchHelper = require('../helper/fetch');
 
 var fetchParticipants = function fetchParticipants(apiUrl, parameters) {
