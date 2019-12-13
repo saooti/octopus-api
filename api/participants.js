@@ -4,6 +4,9 @@ const init = require('../helper/init');
 
 var fetchParticipants = function fetchParticipants(parameters) {
   return new Promise((resolve, reject) => {
+    if(init.octopusSdk.organisationId){
+      parameters.organisationId = init.octopusSdk.organisationId;
+    }
     const params = fetchHelper.getUriSearchParams(parameters);
     let uri = init.octopusSdk.url + 'participant/search?' + params.toString();
     axios

@@ -9,9 +9,10 @@ var initialize = function initialize(initObject){
 		if(initObject.organisationId){
 			octopusSdk.organisationId = initObject.organisationId;
 		}
-		return true;
+		return;
+	} else{
+		return new Error("Init object must contains an api url");
 	}
-	return false;
 };
 
 module.exports = {
