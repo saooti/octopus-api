@@ -1,13 +1,10 @@
 const axios = require('axios');
 var fetchHelper = require('../helper/fetch');
 
-var fetchEmissions = function fetchEmissions(store, parameters) {
+var fetchEmissions = function fetchEmissions(apiUrl, parameters) {
   return new Promise((resolve, reject) => {
     const params = fetchHelper.getUriSearchParams(parameters);
-    let uri =
-      fetchHelper.getUriPath(store, 'emission/search') +
-      '?' +
-      params.toString();
+    let uri = apiUrl +'emission/search?' +params.toString();
 
     axios
       .get(uri)
