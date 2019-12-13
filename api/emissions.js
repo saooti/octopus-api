@@ -1,10 +1,11 @@
 const axios = require('axios');
-var fetchHelper = require('../helper/fetch');
+const fetchHelper = require('../helper/fetch');
+const init = require('../helper/init');
 
-var fetchEmissions = function fetchEmissions(apiUrl, parameters) {
+var fetchEmissions = function fetchEmissions(parameters) {
   return new Promise((resolve, reject) => {
     const params = fetchHelper.getUriSearchParams(parameters);
-    let uri = apiUrl +'emission/search?' +params.toString();
+    let uri = init.octopusSdk.url +'emission/search?' +params.toString();
 
     axios
       .get(uri)
@@ -15,17 +16,17 @@ var fetchEmissions = function fetchEmissions(apiUrl, parameters) {
   });
 };
 
-var fetchRSS = function fetchRSS(apiUrl, emissionId) {
-  return apiUrl +  'rss/emission/' + emissionId;
+var fetchRSS = function fetchRSS(emissionId) {
+  return init.octopusSdk.url +  'rss/emission/' + emissionId;
 };
 
-var fetchEmissionPath = function fetchEmissionPath(apiUrl, emissionId) {
-  return apiUrl +  'emission/' + emissionId;
+var fetchEmissionPath = function fetchEmissionPath(emissionId) {
+  return init.octopusSdk.url +  'emission/' + emissionId;
 };
 
-var fetchItuneCategory = function fetchItuneCategory(apiUrl, iabId){
+var fetchItuneCategory = function fetchItuneCategory(iabId){
   return new Promise((resolve, reject) => {
-    let uri = apiUrl + 'emission/itunes/' + iabId;
+    let uri = init.octopusSdk.url + 'emission/itunes/' + iabId;
     axios
       .get(uri)
       .then(function(data) {
@@ -40,9 +41,9 @@ var fetchItuneCategory = function fetchItuneCategory(apiUrl, iabId){
   });
 };
 
-var fetchEmission = function fetchEmission(apiUrl, emissionId) {
+var fetchEmission = function fetchEmission(emissionId) {
   return new Promise((resolve, reject) => {
-    const uri = apiUrl + 'emission/' + emissionId;
+    const uri = init.octopusSdk.url + 'emission/' + emissionId;
     axios
       .get(uri)
       .then(function(data) {

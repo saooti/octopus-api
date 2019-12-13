@@ -1,10 +1,11 @@
 const axios = require('axios');
-var fetchHelper = require('../helper/fetch');
+const fetchHelper = require('../helper/fetch');
+const init = require('../helper/init');
 
-var fetchParticipants = function fetchParticipants(apiUrl, parameters) {
+var fetchParticipants = function fetchParticipants(parameters) {
   return new Promise((resolve, reject) => {
     const params = fetchHelper.getUriSearchParams(parameters);
-    let uri = apiUrl + 'participant/search?' + params.toString();
+    let uri = init.octopusSdk.url + 'participant/search?' + params.toString();
     axios
       .get(uri)
       .then(function(data) {
@@ -14,9 +15,9 @@ var fetchParticipants = function fetchParticipants(apiUrl, parameters) {
   });
 };
 
-var fetchParticipant = function fetchParticipant(apiUrl, participantId) {
+var fetchParticipant = function fetchParticipant(participantId) {
   return new Promise((resolve, reject) => {
-    let uri = apiUrl + 'participant/' + participantId;
+    let uri = init.octopusSdk.url + 'participant/' + participantId;
 
     axios
       .get(uri)
