@@ -1,7 +1,7 @@
-# octopus-sdk
-Javascript SDK for using octopus 
+# octopus-api
+Javascript API for using octopus 
 
-# Use octopus-sdk
+# Use octopus-api
 Before calling another function, call the function initialize with an init JSON containing : 
 {
     url -> Mandatory
