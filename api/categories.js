@@ -5,13 +5,16 @@ const init = require('../helper/init');
 var fetchCategories = function fetchCategories(parameters) {
   return new Promise((resolve, reject) => {
     const params = fetchHelper.getUriSearchParams(parameters);
-    let uri = init.octopusSdk.url + 'iab/list?' + params.toString();
-    axios
-      .get(uri)
-      .then(function(data) {
-        resolve(data.data);
-      })
-      .catch(error => reject('Error while fetching authentication ' + error));
+      let uri = init.octopusSdk.url + 'iab/list' + '?' + params.toString();
+      if(init.octopusSdk.organisationId){
+        uri = init.octopusSdk.url + 'iab/list/'+ init.octopusSdk.organisationId + '?' + params.toString();
+      }
+      axios
+        .get(uri)
+        .then(function(data) {
+          resolve(data.data);
+        })
+        .catch(error => reject('Error while fetching authentication ' + error));
   });
 };
 

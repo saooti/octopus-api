@@ -1,5 +1,5 @@
 var octopusSdk = {
-	url : "api.dev2.saooti.org",
+	url : "api.dev2.saooti.org/",
 	organisationId : undefined
 };
 
