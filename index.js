@@ -4,5 +4,6 @@ module.exports = {
 	...require('./api/organisations'),
 	...require('./api/participants'),
 	...require('./api/podcasts'),
+	...require('./api/player'),
 	...require('./helper/init')
 };

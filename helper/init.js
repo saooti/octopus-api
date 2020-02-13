@@ -1,11 +1,15 @@
 var octopusSdk = {
 	url : "api.dev2.saooti.org/",
-	organisationId : undefined
+	organisationId : undefined,
+	oAuthParam: undefined,
 };
 
 var initialize = function initialize(initObject){
 	if(initObject.url){
 		octopusSdk.url = initObject.url;
+		if(initObject.oAuthParam){
+			octopusSdk.oAuthParam = initObject.oAuthParam;
+		}
 		if(initObject.organisationId){
 			octopusSdk.organisationId = initObject.organisationId;
 		}
