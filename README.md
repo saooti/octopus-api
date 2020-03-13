@@ -10,3 +10,6 @@ Before calling another function, call the function initialize with an init JSON 
 
 # 0.0.10 
 Ajout de la fonction fetchTopics
+
+# 0.0.11
+Ajout des autres fonctions liées au rubriquage
