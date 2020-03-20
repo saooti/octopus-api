@@ -4,6 +4,9 @@ const init = require('../helper/init');
 
 var fetchTopics =  function fetchTopics(organisationId) {
 	return new Promise((resolve, reject) => {
+		if(init.octopusSdk.organisationId){
+			parameters.organisationId = init.octopusSdk.organisationId;
+		}
 		let uri = init.octopusSdk.url + 'rubriquage/find/' + organisationId;
 		axios
 			.get(uri)
@@ -43,7 +46,7 @@ var searchRubrics =  function searchRubrics(parameters) {
 			parameters.organisationId = init.octopusSdk.organisationId;
 		}
 		const params = fetchHelper.getUriSearchParams(parameters);
-		let uri = init.octopusSdk.url + 'podcast/search?' + params.toString();
+		let uri = init.octopusSdk.url + 'rubrique/search?' + params.toString();
 		axios
 			.get(uri)
 			.then(data => {

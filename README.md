@@ -13,3 +13,6 @@ Ajout de la fonction fetchTopics
 
 # 0.0.11
 Ajout des autres fonctions liées au rubriquage
+
+# 0.0.12
+Erreur api url
