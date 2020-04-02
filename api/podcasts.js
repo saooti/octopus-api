@@ -16,7 +16,7 @@ var fetchPodcast =  function fetchPodcast(podcastId) {
 
 var fetchPodcasts = function fetchPodcasts(parameters) {
 	return new Promise((resolve, reject) => {
-		if(init.octopusSdk.organisationId){
+		if(init.octopusSdk.organisationId && !parameters.organisationId){
 			parameters.organisationId = init.octopusSdk.organisationId;
 		}
 		const params = fetchHelper.getUriSearchParams(parameters);

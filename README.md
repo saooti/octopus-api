@@ -16,3 +16,6 @@ Ajout des autres fonctions liées au rubriquage
 
 # 0.0.12
 Erreur api url
+
+# 0.0.13
+Définir organisationId que si il n'est pas défini
