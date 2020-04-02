@@ -4,8 +4,8 @@ const init = require('../helper/init');
 
 var fetchTopics =  function fetchTopics(organisationId) {
 	return new Promise((resolve, reject) => {
-		if(init.octopusSdk.organisationId && !parameters.organisationId){
-			parameters.organisationId = init.octopusSdk.organisationId;
+		if(init.octopusSdk.organisationId && !organisationId){
+			organisationId = init.octopusSdk.organisationId;
 		}
 		let uri = init.octopusSdk.url + 'rubriquage/find/' + organisationId;
 		axios
