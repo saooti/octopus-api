@@ -18,6 +18,20 @@ var fetchCategories = function fetchCategories(parameters) {
   });
 };
 
+var fetchCategoriesOrga = function fetchCategories(organisationId, parameters) {
+  return new Promise((resolve, reject) => {
+    const params = fetchHelper.getUriSearchParams(parameters);
+    let uri = init.octopusSdk.url + 'iab/list/'+ organisationId + '?' + params.toString();
+    axios
+      .get(uri)
+      .then(function(data) {
+        resolve(data.data);
+      })
+      .catch(error => reject('Error while fetching authentication ' + error));
+  });
+};
+
 module.exports = {
-	fetchCategories: fetchCategories,
+  fetchCategories: fetchCategories,
+  fetchCategoriesOrga: fetchCategoriesOrga,
 }

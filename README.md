@@ -20,3 +20,6 @@ Erreur api url
 # 0.0.13 
 # 0.0.14 
 Définir organisationId que si il n'est pas défini
+
+# 0.0.15
+Fonction fetchCategoriesOrga pour charger les catégories d'une organisation
