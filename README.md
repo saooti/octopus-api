@@ -23,3 +23,6 @@ Définir organisationId que si il n'est pas défini
 
 # 0.0.15
 Fonction fetchCategoriesOrga pour charger les catégories d'une organisation
+
+# 0.0.16
+Fonction liveEnabledOrganisation pour récupérer le para mètre d'organisation live.enable + modification du code en async

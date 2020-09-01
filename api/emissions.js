@@ -2,21 +2,14 @@ const axios = require('axios');
 const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
-var fetchEmissions = function fetchEmissions(parameters) {
-  return new Promise((resolve, reject) => {
-    if(init.octopusSdk.organisationId && !parameters.organisationId){
-      parameters.organisationId = init.octopusSdk.organisationId;
-    }
-    const params = fetchHelper.getUriSearchParams(parameters);
-    let uri = init.octopusSdk.url +'emission/search?' +params.toString();
-
-    axios
-      .get(uri)
-      .then(function(data) {
-        resolve(data.data);
-      })
-      .catch(error => reject('Error while fetching authentication ' + error));
-  });
+var fetchEmissions = async function fetchEmissions(parameters) {
+  if(init.octopusSdk.organisationId && !parameters.organisationId){
+    parameters.organisationId = init.octopusSdk.organisationId;
+  }
+  const params = fetchHelper.getUriSearchParams(parameters);
+  let uri = init.octopusSdk.url +'emission/search?' +params.toString();
+  const response = await axios.get(uri);
+  return response.data;
 };
 
 var fetchRSS = function fetchRSS(emissionId) {
@@ -27,35 +20,20 @@ var fetchEmissionPath = function fetchEmissionPath(emissionId) {
   return init.octopusSdk.url +  'emission/' + emissionId;
 };
 
-var fetchItuneCategory = function fetchItuneCategory(iabId){
-  return new Promise((resolve, reject) => {
-    let uri = init.octopusSdk.url + 'emission/itunes/' + iabId;
-    axios
-      .get(uri)
-      .then(function(data) {
-          if(data.data.level2){
-              resolve(data.data.level1+" "+data.data.level2);
-          }else{
-              resolve(data.data.level1);
-          }
-
-      })
-      .catch(error => reject('Error while fetching itunes category ' + error));
-  });
+var fetchItuneCategory = async function fetchItuneCategory(iabId){
+  let uri = init.octopusSdk.url + 'emission/itunes/' + iabId;
+  const response = await axios.get(uri);
+  if(response.data.level2){
+    return response.data.level1+" "+response.data.level2;
+  }else{
+    return response.data.level1;
+  }
 };
 
-var fetchEmission = function fetchEmission(emissionId) {
-  return new Promise((resolve, reject) => {
-    const uri = init.octopusSdk.url + 'emission/' + emissionId;
-    axios
-      .get(uri)
-      .then(function(data) {
-        resolve(data.data);
-      })
-      .catch(error =>
-        reject('Error while fetching emission content ' + error)
-      );
-  });
+var fetchEmission = async function fetchEmission(emissionId) {
+  const uri = init.octopusSdk.url + 'emission/' + emissionId;
+  const response = await axios.get(uri);
+  return response.data;
 };
 
 module.exports = {

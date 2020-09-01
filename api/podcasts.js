@@ -2,32 +2,20 @@ const axios = require('axios');
 const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
-var fetchPodcast =  function fetchPodcast(podcastId) {
-	return new Promise((resolve, reject) => {
-		let uri = init.octopusSdk.url + 'podcast/' + podcastId;
-		axios
-			.get(uri)
-			.then(data => {
-				resolve(data.data);
-			})
-			.catch(error => reject('Error while fetching authentication ' + error));
-	});
+var fetchPodcast =  async function fetchPodcast(podcastId) {
+	let uri = init.octopusSdk.url + 'podcast/' + podcastId;
+	const response = await axios.get(uri);
+  	return response.data;
 };
 
-var fetchPodcasts = function fetchPodcasts(parameters) {
-	return new Promise((resolve, reject) => {
-		if(init.octopusSdk.organisationId && !parameters.organisationId){
-			parameters.organisationId = init.octopusSdk.organisationId;
-		}
-		const params = fetchHelper.getUriSearchParams(parameters);
-		let uri = init.octopusSdk.url + 'podcast/search?' + params.toString();
-		axios
-			.get(uri)
-			.then(data => {
-				resolve(data.data);
-			})
-			.catch(error => reject('Error while fetching authentication ' + error));
-	});
+var fetchPodcasts = async function fetchPodcasts(parameters) {
+	if(init.octopusSdk.organisationId && !parameters.organisationId){
+		parameters.organisationId = init.octopusSdk.organisationId;
+	}
+	const params = fetchHelper.getUriSearchParams(parameters);
+	let uri = init.octopusSdk.url + 'podcast/search?' + params.toString();
+	const response = await axios.get(uri);
+  	return response.data;
 };
 
 module.exports = {
