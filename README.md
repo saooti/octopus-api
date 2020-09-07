@@ -26,3 +26,6 @@ Fonction fetchCategoriesOrga pour charger les catégories d'une organisation
 
 # 0.0.16
 Fonction liveEnabledOrganisation pour récupérer le para mètre d'organisation live.enable + modification du code en async
+
+# 0.0.17
+Ajout playlists.js

@@ -6,5 +6,6 @@ module.exports = {
 	...require('./api/podcasts'),
 	...require('./api/player'),
 	...require('./api/rubriques'),
-	...require('./helper/init')
+	...require('./helper/init'),
+	...require('./api/playlists'),
 };
