@@ -1,5 +1,5 @@
 var octopusSdk = {
-	url : "api.dev2.saooti.org/",
+	url : "https://api.staging.saooti.org/",
 	organisationId : undefined,
 	oAuthParam: undefined,
 };
