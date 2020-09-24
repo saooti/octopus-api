@@ -29,3 +29,6 @@ Fonction liveEnabledOrganisation pour récupérer le para mètre d'organisation 
 
 # 0.0.17
 Ajout playlists.js
+
+# 0.0.18-20
+Ajout live.js
