@@ -4,7 +4,7 @@ const init = require('../helper/init');
 
 var requestLiveDownloadId = async function requestLiveDownloadId(podcastId){
   let uri = init.octopusSdk.url + 'podcast/prepare/live/' + podcastId;
-  let response = await axios.get(uri);
+  let response = await axios.put(uri);
   if(response.data && response.downloadId){
     return response.data.downloadId;
   }
