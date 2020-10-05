@@ -33,3 +33,5 @@ Ajout playlists.js
 # 0.0.18-22
 Ajout live.js
 C'est un PUT pas un GET espèce de noob
+# 0.0.23
+Ajout fetchLive
