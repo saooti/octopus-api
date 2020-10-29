@@ -9,4 +9,5 @@ module.exports = {
 	...require('./api/rubriques'),
 	...require('./helper/init'),
 	...require('./api/playlists'),
+	...require('./api/comments'),
 };

@@ -1,5 +1,6 @@
 var octopusSdk = {
 	url : "https://api.dev2.saooti.org/",
+	commentsUrl : "https://comments.dev2.saooti.org/",
 	organisationId : undefined,
 	oAuthParam: undefined,
 };
