@@ -1,5 +1,6 @@
 const axios = require('axios');
 const init = require('@saooti/octopus-api/helper/init');
+const fetchHelper = require('../helper/fetch');
 
 var postComment =  async function postComment(comment) {
 	let data = new FormData();
@@ -20,26 +21,16 @@ var fetchCommentAnswers =  async function fetchCommentAnswers(commentId) {
 };
 
 var fetchComments = async function fetchComments(parameters) {
-	let data = new FormData();
-    for ( var key in parameters ) {
-      if(parameters[key]){
-        data.append(key, parameters[key]);
-      }
-    }
-	let uri = init.octopusSdk.commentsUrl;
-	const response = await axios.get(uri, data ,{headers:{'Content-Type': 'application/json; charset=utf-8'} });
+	const params = fetchHelper.getUriSearchParams(parameters);
+	let uri = init.octopusSdk.commentsUrl+'?'+ params.toString();
+	const response = await axios.get(uri);
   	return response.data;
 };
 
 var fetchRootComments = async function fetchRootComments(parameters) {
-	let data = new FormData();
-    for ( var key in parameters ) {
-      if(parameters[key]){
-        data.append(key, parameters[key]);
-      }
-    }
-	let uri = init.octopusSdk.commentsUrl + 'getRootCom';
-	const response = await axios.get(uri, data ,{headers:{'Content-Type': 'application/json; charset=utf-8'}});
+	const params = fetchHelper.getUriSearchParams(parameters);
+	let uri = init.octopusSdk.commentsUrl + 'getRootCom?' + params.toString();
+	const response = await axios.get(uri);
   	return response.data;
 };
 
@@ -48,6 +39,5 @@ module.exports = {
 	fetchCommentAnswers: fetchCommentAnswers,
 	fetchComments: fetchComments,
 	fetchRootComments: fetchRootComments,
-	updateComment:updateComment
 }
  
