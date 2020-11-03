@@ -35,6 +35,5 @@ Ajout live.js
 C'est un PUT pas un GET espèce de noob
 # 0.0.23
 Ajout fetchLive
-# 0.0.24
-# 0.0.25
+# 0.0.24-26
 Ajout comments

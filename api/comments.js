@@ -15,7 +15,7 @@ var postComment =  async function postComment(comment) {
 };
 
 var fetchCommentAnswers =  async function fetchCommentAnswers(commentId) {
-	let uri = init.octopusSdk.commentsUrl + '/' + commentId;
+	let uri = init.octopusSdk.commentsUrl + commentId;
 	const response = await axios.get(uri);
   	return response.data;
 };
@@ -23,6 +23,11 @@ var fetchCommentAnswers =  async function fetchCommentAnswers(commentId) {
 var fetchComments = async function fetchComments(parameters) {
 	const params = fetchHelper.getUriSearchParams(parameters);
 	let uri = init.octopusSdk.commentsUrl+'?'+ params.toString();
+	const response = await axios.get(uri);
+  	return response.data;
+};
+var fetchComment = async function fetchComment(comId) {
+	let uri = init.octopusSdk.commentsUrl+'comment/'+ comId;
 	const response = await axios.get(uri);
   	return response.data;
 };
@@ -39,5 +44,6 @@ module.exports = {
 	fetchCommentAnswers: fetchCommentAnswers,
 	fetchComments: fetchComments,
 	fetchRootComments: fetchRootComments,
+	fetchComment:fetchComment,
 }
  
