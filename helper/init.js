@@ -14,6 +14,9 @@ var initialize = function initialize(initObject){
 		if(initObject.organisationId){
 			octopusSdk.organisationId = initObject.organisationId;
 		}
+		if(initObject.commentsUrl){
+			octopusSdk.commentsUrl = initObject.commentsUrl;
+		}
 		return;
 	} else{
 		return new Error("Init object must contains an api url");
