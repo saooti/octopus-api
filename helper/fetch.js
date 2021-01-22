@@ -7,7 +7,7 @@ var getUriSearchParams = function getUriSearchParams(parameters) {
   const _return = new URLSearchParams();
 
   keys.forEach(k => {
-    if (parameters[k]) {
+    if(undefined !== parameters[k] && '' !== parameters[k]) {
       _return.append(k, parameters[k]);
     }
   });

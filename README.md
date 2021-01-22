@@ -37,3 +37,6 @@ C'est un PUT pas un GET espèce de noob
 Ajout fetchLive
 # 0.0.24-27
 Ajout comments
+
+# 0.0.30
+Amélioration paramètres
