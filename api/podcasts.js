@@ -9,6 +9,7 @@ var fetchPodcast =  async function fetchPodcast(podcastId) {
 };
 
 var fetchPodcasts = async function fetchPodcasts(parameters) {
+	parameters.validity=true;
 	if(init.octopusSdk.organisationId && !parameters.organisationId){
 		parameters.organisationId = init.octopusSdk.organisationId;
 	}

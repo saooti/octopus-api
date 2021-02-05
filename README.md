@@ -40,3 +40,6 @@ Ajout comments
 
 # 0.0.30
 Amélioration paramètres
+
+# 0.23.0
+Add validity parameter
