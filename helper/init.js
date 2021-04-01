@@ -1,6 +1,7 @@
 var octopusSdk = {
 	url : "https://api.dev2.saooti.org/",
 	commentsUrl : "https://comments.dev2.saooti.org/",
+	studioUrl: "https://studio.dev2.saooti.org/",
 	organisationId : undefined,
 	oAuthParam: undefined,
 };
@@ -16,6 +17,9 @@ var initialize = function initialize(initObject){
 		}
 		if(initObject.commentsUrl){
 			octopusSdk.commentsUrl = initObject.commentsUrl;
+		}
+		if(initObject.studioUrl){
+			octopusSdk.studioUrl = initObject.studioUrl;
 		}
 		return;
 	} else{

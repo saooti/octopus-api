@@ -43,3 +43,6 @@ Amélioration paramètres
 
 # 0.23.0
 Add validity parameter
+
+# 0.23.0
+Add studio functions

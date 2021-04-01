@@ -23,8 +23,29 @@ var markPlayingLive = async function markPlayingLive(podcastId, downloadId, orig
   const response = await axios.get(uri, {params: parameters});
   return response.data;
 }
+var listConferences = async function listConferences(organisationId, withPodcastId= false,status = undefined) {
+  let param = {
+    organisationId: organisationId,
+    withPodcastId: withPodcastId,
+  };
+  if (status) {
+    param.status = status;
+  }
+  let uri = init.octopusSdk.studioUrl + 'conference/list';
+  const response = await axios.get(uri, { params: param });
+  return response.data;
+}
+
+var getRealConferenceStatus = async function getRealConferenceStatus(conferenceId) {
+  let uri = init.octopusSdk.studioUrl + 'conference/realstatus/' + conferenceId;
+  const response = await axios.get(uri);
+  return response;
+}
+
 
 module.exports = {
 	requestLiveDownloadId: requestLiveDownloadId,
 	markPlayingLive: markPlayingLive,
+  listConferences: listConferences,
+  getRealConferenceStatus: getRealConferenceStatus
 }
