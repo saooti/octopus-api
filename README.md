@@ -46,3 +46,7 @@ Add validity parameter
 
 # 0.23.0
 Add studio functions
+
+# 0.25.0
+Modification commentaires
+
