@@ -3,7 +3,7 @@ const init = require('@saooti/octopus-api/helper/init');
 const fetchHelper = require('../helper/fetch');
 
 var postComment =  async function postComment(comment) {
-	let uri = init.octopusSdk.commentsUrl + "/unregisteredComment";
+	let uri = init.octopusSdk.commentsUrl + "unregisteredComment";
 	const response = await axios.post(uri, comment ,{headers:{'Content-Type': 'application/json; charset=utf-8'} });
 	return response.data;
 };
