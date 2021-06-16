@@ -8,9 +8,11 @@ var postComment =  async function postComment(comment) {
 	return response.data;
 };
 
-var fetchCommentAnswers =  async function fetchCommentAnswers(commentId) {
+var fetchCommentAnswers =  async function fetchCommentAnswers(commentId,parameters) {
 	let uri = init.octopusSdk.commentsUrl + commentId;
-	const response = await axios.get(uri);
+	const response = await axios.post(uri, parameters,
+		{headers: { 'content-type': 'application/json' }
+	  });
   	return response.data;
 };
 
