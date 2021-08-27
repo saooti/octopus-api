@@ -50,3 +50,7 @@ Add studio functions
 # 0.25.0
 Modification commentaires
 
+# 0.27.0
+Fetch organisation attributes
+
+

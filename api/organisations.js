@@ -20,10 +20,16 @@ var liveEnabledOrganisation = async function liveEnabledOrganisation(productorId
   const response = await axios.get(uri);
   return response.data;
 };
+var fetchOrganisationAttributes = async function fetchOrganisationAttributes(productorId) {
+  let uri = init.octopusSdk.url + 'organisation/attributes/' + productorId;
+  const response = await axios.get(uri);
+  return response.data;
+};
 
 module.exports = {
 	fetchOrganisation: fetchOrganisation,
   fetchOrganisations: fetchOrganisations,
   liveEnabledOrganisation: liveEnabledOrganisation,
+  fetchOrganisationAttributes: fetchOrganisationAttributes,
 }
 
