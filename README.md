@@ -52,5 +52,7 @@ Modification commentaires
 
 # 0.27.0
 Fetch organisation attributes
+# 0.27.1
+Fetch customPlayer
 
 
