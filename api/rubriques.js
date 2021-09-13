@@ -2,11 +2,15 @@ const axios = require('axios');
 const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
-var fetchTopics =  async function fetchTopics(organisationId) {
+var fetchTopics =  async function fetchTopics(organisationId, parameters) {
 	if(init.octopusSdk.organisationId && !organisationId){
 		organisationId = init.octopusSdk.organisationId;
 	}
-	let uri = init.octopusSdk.url + 'rubriquage/find/' + organisationId;
+	let params = "";
+	if(parameters){
+		params = fetchHelper.getUriSearchParams(parameters);
+	}
+	let uri = init.octopusSdk.url + 'rubriquage/find/' + organisationId+'?' + params.toString();;
 	const response = await axios.get(uri);
   	return response.data;
 };

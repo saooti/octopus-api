@@ -55,4 +55,6 @@ Fetch organisation attributes
 # 0.27.1
 Fetch customPlayer
 
+# 0.28.0
+Update rubriquage
 
