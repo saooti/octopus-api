@@ -58,3 +58,6 @@ Fetch customPlayer
 # 0.28.0
 Update rubriquage
 
+# 0.29.0
+Update axios
+
