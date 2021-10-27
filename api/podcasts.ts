@@ -1,5 +1,5 @@
-import axios from 'axios';
-import fetchHelper from '../helper/fetch';
+const axios = require('axios');
+const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
 var fetchPodcast =  async function fetchPodcast(podcastId: any): Promise<any> {

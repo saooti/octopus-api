@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 const init = require('../helper/init');
 
 var requestLiveDownloadId = async function requestLiveDownloadId(podcastId: any): Promise<any>{

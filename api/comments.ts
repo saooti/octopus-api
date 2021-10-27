@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 const init = require('../helper/init');
 
 var postComment =  async function postComment(comment: any): Promise<any> {

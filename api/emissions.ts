@@ -1,5 +1,5 @@
-import axios from 'axios';
-import fetchHelper from '../helper/fetch';
+const axios = require('axios');
+const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 var fetchEmissions = async function fetchEmissions(parameters): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){

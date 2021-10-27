@@ -1,5 +1,5 @@
-import axios from 'axios';
-import fetchHelper from '../helper/fetch';
+const axios = require('axios');
+const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
 var fetchTopics =  async function fetchTopics(organisationId:string|undefined, parameters: any): Promise<any> {

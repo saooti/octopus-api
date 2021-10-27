@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 const init = require('../helper/init');
 
 var updatePlayerTime = async function updatePlayerTime(downloadId: any, seconds:number): Promise<any> {
