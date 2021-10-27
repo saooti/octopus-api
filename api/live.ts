@@ -1,16 +1,15 @@
-const axios = require('axios');
-const fetchHelper = require('../helper/fetch');
-const init = require('../helper/init');
+import axios from 'axios';
+import init from '../helper/init';
 
-var requestLiveDownloadId = async function requestLiveDownloadId(podcastId){
+var requestLiveDownloadId = async function requestLiveDownloadId(podcastId: any): Promise<any>{
   let uri = init.octopusSdk.url + 'podcast/prepare/live/' + podcastId;
   let response = await axios.put(uri);
   return response.data
 }
 
-var markPlayingLive = async function markPlayingLive(podcastId, downloadId, origin, distributorId){
+var markPlayingLive = async function markPlayingLive(podcastId: any, downloadId: any, origin: any, distributorId: any): Promise<any>{
   let uri = init.octopusSdk.url + 'podcast/download/live/' + podcastId+".m3u8";
-  let parameters = {};
+  let parameters : any= {};
   if(downloadId){
     parameters.downloadId = downloadId;
   }
@@ -23,8 +22,8 @@ var markPlayingLive = async function markPlayingLive(podcastId, downloadId, orig
   const response = await axios.get(uri, {params: parameters});
   return response.data;
 }
-var listConferences = async function listConferences(organisationId, withPodcastId= false,status = undefined) {
-  let param = {
+var listConferences = async function listConferences(organisationId: string, withPodcastId= false,status = undefined): Promise<any> {
+  let param : any= {
     organisationId: organisationId,
     withPodcastId: withPodcastId,
   };
@@ -36,14 +35,14 @@ var listConferences = async function listConferences(organisationId, withPodcast
   return response.data;
 }
 
-var getRealConferenceStatus = async function getRealConferenceStatus(conferenceId) {
+var getRealConferenceStatus = async function getRealConferenceStatus(conferenceId: any) : Promise<any>{
   let uri = init.octopusSdk.studioUrl + 'conference/realstatus/' + conferenceId;
   const response = await axios.get(uri);
   return response;
 }
 
 
-module.exports = {
+export default {
 	requestLiveDownloadId: requestLiveDownloadId,
 	markPlayingLive: markPlayingLive,
   listConferences: listConferences,

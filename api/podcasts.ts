@@ -1,14 +1,14 @@
-const axios = require('axios');
-const fetchHelper = require('../helper/fetch');
-const init = require('../helper/init');
+import axios from 'axios';
+import fetchHelper from '../helper/fetch';
+import init from '../helper/init';
 
-var fetchPodcast =  async function fetchPodcast(podcastId) {
+var fetchPodcast =  async function fetchPodcast(podcastId: any): Promise<any> {
 	let uri = init.octopusSdk.url + 'podcast/' + podcastId;
 	const response = await axios.get(uri);
   	return response.data;
 };
 
-var fetchPodcasts = async function fetchPodcasts(parameters) {
+var fetchPodcasts = async function fetchPodcasts(parameters: any): Promise<any> {
 	parameters.validity=true;
 	if(init.octopusSdk.organisationId && !parameters.organisationId){
 		parameters.organisationId = init.octopusSdk.organisationId;
@@ -18,7 +18,7 @@ var fetchPodcasts = async function fetchPodcasts(parameters) {
 	const response = await axios.get(uri);
   	return response.data;
 };
-var fetchLives = async function fetchLives(parameters) {
+var fetchLives = async function fetchLives(parameters: any): Promise<any> {
 	if(init.octopusSdk.organisationId && !parameters.organisationId){
 		parameters.organisationId = init.octopusSdk.organisationId;
 	}
@@ -28,7 +28,7 @@ var fetchLives = async function fetchLives(parameters) {
   	return response.data;
 };
 
-module.exports = {
+export default {
 	fetchPodcast: fetchPodcast,
 	fetchPodcasts: fetchPodcasts,
 	fetchLives: fetchLives,

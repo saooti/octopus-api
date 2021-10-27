@@ -1,8 +1,8 @@
-const axios = require('axios');
-const fetchHelper = require('../helper/fetch');
-const init = require('../helper/init');
+import axios from 'axios';
+import fetchHelper from '../helper/fetch';
+import init from '../helper/init';
 
-var fetchEmissions = async function fetchEmissions(parameters) {
+var fetchEmissions = async function fetchEmissions(parameters): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
     parameters.organisationId = init.octopusSdk.organisationId;
   }
@@ -12,17 +12,17 @@ var fetchEmissions = async function fetchEmissions(parameters) {
   return response.data;
 };
 
-var fetchRSS = function fetchRSS(emissionId) {
+var fetchRSS = function fetchRSS(emissionId: number|undefined): string {
   return init.octopusSdk.url +  'rss/emission/' + emissionId;
 };
 
-var fetchEmissionPath = function fetchEmissionPath(emissionId) {
+var fetchEmissionPath = function fetchEmissionPath(emissionId: number|undefined): string {
   return init.octopusSdk.url +  'emission/' + emissionId;
 };
 
-var fetchItuneCategory = async function fetchItuneCategory(iabId){
+var fetchItuneCategory = async function fetchItuneCategory(iabId: string): Promise<any>{
   let uri = init.octopusSdk.url + 'emission/itunes/' + iabId;
-  const response = await axios.get(uri);
+  const response :any = await axios.get(uri);
   if(response.data.level2){
     return response.data.level1+" "+response.data.level2;
   }else{
@@ -30,13 +30,13 @@ var fetchItuneCategory = async function fetchItuneCategory(iabId){
   }
 };
 
-var fetchEmission = async function fetchEmission(emissionId) {
+var fetchEmission = async function fetchEmission(emissionId: number|undefined): Promise<any> {
   const uri = init.octopusSdk.url + 'emission/' + emissionId;
   const response = await axios.get(uri);
   return response.data;
 };
 
-module.exports = {
+export default {
 	fetchEmissions: fetchEmissions,
   fetchEmission: fetchEmission,
   fetchItuneCategory: fetchItuneCategory,

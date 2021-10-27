@@ -1,8 +1,8 @@
-const axios = require('axios');
-const fetchHelper = require('../helper/fetch');
-const init = require('../helper/init');
+import axios from 'axios';
+import fetchHelper from '../helper/fetch';
+import init from '../helper/init';
 
-var fetchParticipants = async function fetchParticipants(parameters) {
+var fetchParticipants = async function fetchParticipants(parameters: any): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
     parameters.organisationId = init.octopusSdk.organisationId;
   }
@@ -12,13 +12,13 @@ var fetchParticipants = async function fetchParticipants(parameters) {
   return response.data;
 };
 
-var fetchParticipant = async function fetchParticipant(participantId) {
+var fetchParticipant = async function fetchParticipant(participantId: any): Promise<any> {
   let uri = init.octopusSdk.url + 'participant/' + participantId;
   const response = await axios.get(uri);
   return response.data;
 };
 
-module.exports = {
+export default {
 	fetchParticipants: fetchParticipants,
   fetchParticipant: fetchParticipant,
 }

@@ -60,4 +60,6 @@ Update rubriquage
 
 # 0.29.0
 Update axios
+# 0.29.1
+Typescript
 

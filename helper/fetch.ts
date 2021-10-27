@@ -1,6 +1,6 @@
-const axios = require('axios');
-const moment = require('moment');
-const init = require('../helper/init');
+import axios from 'axios';
+import moment from 'moment';
+import init from '../helper/init';
 
 var getUriSearchParams = function getUriSearchParams(parameters) {
   const keys = Object.keys(parameters);
@@ -19,7 +19,7 @@ var createAuthenticatedFetchHeader = function createAuthenticatedFetchHeader() {
     const currentTime = moment();
     const expirationDate = moment(init.octopusSdk.oAuthParam.expiration);
     if (currentTime.isAfter(expirationDate)) {
-      refreshToken().then(data => {
+      refreshToken().then((data: any) => {
         if (data) {
           init.octopusSdk.oAuthParam.expiration = new Date(
             Date.now() + data.expires_in * 1000
@@ -37,7 +37,7 @@ var createAuthenticatedFetchHeader = function createAuthenticatedFetchHeader() {
 };
 
 var refreshToken = function refreshToken() {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const params =
       'refresh_token=' +
       init.octopusSdk.oAuthParam.refreshToken +
@@ -54,13 +54,13 @@ var refreshToken = function refreshToken() {
       })
       .catch(() => {
         /* window.location = '/sso/logout'; */
-        resolve();
+        reject();
       });
   });
 };
 
 
-module.exports = {
+export default {
   getUriSearchParams: getUriSearchParams,
   createAuthenticatedFetchHeader: createAuthenticatedFetchHeader,
 }

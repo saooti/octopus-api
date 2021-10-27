@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	...require('./api/categories'),
 	...require('./api/emissions'),
 	...require('./api/organisations'),

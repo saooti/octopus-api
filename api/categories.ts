@@ -1,8 +1,8 @@
-const axios = require('axios');
-const fetchHelper = require('../helper/fetch');
-const init = require('../helper/init');
+import axios from 'axios';
+import fetchHelper from '../helper/fetch';
+import init from '../helper/init';
 
-var fetchCategories = async function fetchCategories(parameters) {
+var fetchCategories = async function fetchCategories(parameters: any): Promise<any> {
   const params = fetchHelper.getUriSearchParams(parameters);
   let uri = init.octopusSdk.url + 'iab/list' + '?' + params.toString();
   if(init.octopusSdk.organisationId){
@@ -12,14 +12,14 @@ var fetchCategories = async function fetchCategories(parameters) {
   return response.data;
 };
 
-var fetchCategoriesOrga = async function fetchCategories(organisationId, parameters) {
+var fetchCategoriesOrga = async function fetchCategories(organisationId: string, parameters: any): Promise<any> {
   const params = fetchHelper.getUriSearchParams(parameters);
   let uri = init.octopusSdk.url + 'iab/list/'+ organisationId + '?' + params.toString();
   const response = await axios.get(uri);
   return response.data;
 };
 
-module.exports = {
+export default {
   fetchCategories: fetchCategories,
   fetchCategoriesOrga: fetchCategoriesOrga,
 }
