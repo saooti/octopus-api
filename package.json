@@ -2,10 +2,12 @@
   "name": "@saooti/octopus-api",
   "version": "0.29.2",
   "description": "NodeJS package to expose Octopus API to multiples projects",
-  "main": "dist/index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types": "index.d.ts",
+  "typings": "./index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/saooti/octopus-api.git"
