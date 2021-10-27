@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var fetchPlaylists = async function fetchPlaylists(parameters: any): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
@@ -25,7 +25,7 @@ var fetchPlaylistContent = async function fetchPlaylistContent(playlistId: any):
   };
   
 
-export default {
+  module.exports ={
   fetchPlaylists: fetchPlaylists,
   fetchPlaylist: fetchPlaylist,
   fetchPlaylistContent: fetchPlaylistContent,

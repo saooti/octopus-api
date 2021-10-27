@@ -1,7 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
-
+const init = require('../helper/init');
 var fetchEmissions = async function fetchEmissions(parameters): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
     parameters.organisationId = init.octopusSdk.organisationId;
@@ -36,7 +35,7 @@ var fetchEmission = async function fetchEmission(emissionId: number|undefined): 
   return response.data;
 };
 
-export default {
+module.exports ={
 	fetchEmissions: fetchEmissions,
   fetchEmission: fetchEmission,
   fetchItuneCategory: fetchItuneCategory,

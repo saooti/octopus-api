@@ -1,5 +1,5 @@
 import axios from 'axios';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var postComment =  async function postComment(comment: any): Promise<any> {
 	let uri = init.octopusSdk.commentsUrl + "unregisteredComment";
@@ -36,7 +36,7 @@ var fetchRootComments = async function fetchRootComments(parameters:any): Promis
 	return response.data;
 };
 
-export default {
+module.exports = {
 	postComment:postComment,
 	fetchCommentAnswers: fetchCommentAnswers,
 	fetchComments: fetchComments,

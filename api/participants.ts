@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var fetchParticipants = async function fetchParticipants(parameters: any): Promise<any> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
@@ -18,7 +18,7 @@ var fetchParticipant = async function fetchParticipant(participantId: any): Prom
   return response.data;
 };
 
-export default {
+module.exports ={
 	fetchParticipants: fetchParticipants,
   fetchParticipant: fetchParticipant,
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var fetchTopics =  async function fetchTopics(organisationId:string|undefined, parameters: any): Promise<any> {
 	if(init.octopusSdk.organisationId && !organisationId){
@@ -36,7 +36,7 @@ var searchRubrics =  async function searchRubrics(parameters: any): Promise<any>
   	return response.data;
 };
 
-export default {
+module.exports = {
 	fetchTopics: fetchTopics,
 	fetchTopic: fetchTopic,
 	fetchRubric: fetchRubric,

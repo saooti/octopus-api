@@ -1,6 +1,6 @@
 {
   "name": "@saooti/octopus-api",
-  "version": "0.29.5",
+  "version": "0.29.6",
   "description": "NodeJS package to expose Octopus API to multiples projects",
   "main": "index.ts",
   "scripts": {

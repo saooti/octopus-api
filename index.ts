@@ -8,6 +8,6 @@ module.exports = {
 	...require('./api/player'),
 	...require('./api/rubriques'),
 	...require('./helper/init'),
-	...require('./api/playlists'),
 	...require('./api/comments'),
+	...require('./api/playlists'),
 };

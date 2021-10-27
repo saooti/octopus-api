@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var fetchPodcast =  async function fetchPodcast(podcastId: any): Promise<any> {
 	let uri = init.octopusSdk.url + 'podcast/' + podcastId;
@@ -28,7 +28,7 @@ var fetchLives = async function fetchLives(parameters: any): Promise<any> {
   	return response.data;
 };
 
-export default {
+module.exports = {
 	fetchPodcast: fetchPodcast,
 	fetchPodcasts: fetchPodcasts,
 	fetchLives: fetchLives,

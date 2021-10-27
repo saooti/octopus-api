@@ -1,6 +1,6 @@
 import axios from 'axios';
 import fetchHelper from '../helper/fetch';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var fetchOrganisations = async function fetchOrganisations(parameters: any): Promise<any> {
   const params = fetchHelper.getUriSearchParams(parameters);
@@ -26,7 +26,7 @@ var fetchOrganisationAttributes = async function fetchOrganisationAttributes(pro
   return response.data;
 };
 
-export default {
+module.exports ={
 	fetchOrganisation: fetchOrganisation,
   fetchOrganisations: fetchOrganisations,
   liveEnabledOrganisation: liveEnabledOrganisation,

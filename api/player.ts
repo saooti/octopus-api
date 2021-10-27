@@ -1,5 +1,5 @@
 import axios from 'axios';
-import init from '../helper/init';
+const init = require('../helper/init');
 
 var updatePlayerTime = async function updatePlayerTime(downloadId: any, seconds:number): Promise<any> {
     let uri = init.octopusSdk.url + 'podcast/listen/' + downloadId + '?seconds=' + seconds;
@@ -14,7 +14,7 @@ var fetchCustomPlayer = async function fetchCustomPlayer(getPlayerPath:string): 
     });
     return response.data;
 };
-export default {
+module.exports = {
     updatePlayerTime: updatePlayerTime,
     fetchCustomPlayer: fetchCustomPlayer,
 }
