@@ -33,6 +33,15 @@ export interface ApiStatic {
     fetchTopic(rubriquageId: any): Promise<any>;
     fetchRubric(rubriqueId: any): Promise<any>;
     searchRubrics(parameters: any): Promise<any>;
+    octopusSdk:{
+        url : string,
+        commentsUrl : string,
+        studioUrl: string,
+        playerUrl : string,
+        organisationId : any,
+        oAuthParam: any,
+    };
+    initialize(initObject: any): void;
 }
 declare const api: ApiStatic;
 export default api;
