@@ -18,7 +18,7 @@ export interface ApiStatic {
     fetchComments(parameters:FetchParam): Promise<InterfacePageable<CommentPodcast>>;
     fetchComment(comId: number): Promise<CommentPodcast>;
     fetchRootComments(parameters:FetchParam): Promise<InterfacePageable<CommentPodcast>>;
-    etchEmissions(parameters: FetchParam): Promise<{
+    fetchEmissions(parameters: FetchParam): Promise<{
         count: number;
         result:Array<Emission>;
         sort: string;}>;
