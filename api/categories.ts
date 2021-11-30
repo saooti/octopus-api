@@ -10,9 +10,9 @@ var fetchCategories = async function fetchCategories(parameters: FetchParam, org
   const params = fetchHelper.getUriSearchParams(parameters);
   let orgaId = '';
   if(organisationId){
-    orgaId = organisationId;
+    orgaId = '/'+organisationId;
   }else if(init.octopusSdk.organisationId){
-    orgaId = init.octopusSdk.organisationId;
+    orgaId = '/'+init.octopusSdk.organisationId;
   }
   let uri = init.octopusSdk.url + 'iab/list' +orgaId+ '?' + params.toString();
   const response = await axios.get(uri, {
@@ -20,6 +20,6 @@ var fetchCategories = async function fetchCategories(parameters: FetchParam, org
   });
   return response.data;
 };
-module.exports = {
-  fetchCategories: fetchCategories,
+export {
+  fetchCategories,
 }

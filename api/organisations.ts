@@ -35,10 +35,10 @@ var fetchOrganisationAttributes = async function fetchOrganisationAttributes(pro
   return response.data;
 };
 
-module.exports ={
-	fetchOrganisation: fetchOrganisation,
-  fetchOrganisations: fetchOrganisations,
-  liveEnabledOrganisation: liveEnabledOrganisation,
-  fetchOrganisationAttributes: fetchOrganisationAttributes,
+export {
+	fetchOrganisation,
+  fetchOrganisations,
+  liveEnabledOrganisation,
+  fetchOrganisationAttributes,
 }
 

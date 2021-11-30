@@ -45,10 +45,10 @@ var fetchEmission = async function fetchEmission(emissionId: number|undefined): 
   return response.data;
 };
 
-module.exports ={
-	fetchEmissions: fetchEmissions,
-  fetchEmission: fetchEmission,
-  fetchItuneCategory: fetchItuneCategory,
-  fetchEmissionPath: fetchEmissionPath,
-  fetchRSS: fetchRSS,
+export {
+	fetchEmissions,
+  fetchEmission,
+  fetchItuneCategory,
+  fetchEmissionPath,
+  fetchRSS,
 }

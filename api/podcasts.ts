@@ -58,9 +58,9 @@ var fetchLives = async function fetchLives(parameters: FetchParam): Promise<{
 	return response.data;
 };
 
-module.exports = {
-	fetchPodcast: fetchPodcast,
-	fetchPodcasts: fetchPodcasts,
-	fetchLives: fetchLives,
+export {
+	fetchPodcast,
+	fetchPodcasts,
+	fetchLives,
 }
  

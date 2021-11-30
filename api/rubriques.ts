@@ -44,9 +44,9 @@ var searchRubrics =  async function searchRubrics(parameters: FetchParam|undefin
   	return response.data;
 };
 
-module.exports = {
-	fetchTopics: fetchTopics,
-	fetchTopic: fetchTopic,
-	fetchRubric: fetchRubric,
-	searchRubrics: searchRubrics,
+export {
+	fetchTopics,
+	fetchTopic,
+	fetchRubric,
+	searchRubrics,
 }

@@ -14,7 +14,7 @@ var fetchCustomPlayer = async function fetchCustomPlayer(getPlayerPath:string): 
     });
     return response.data;
 };
-module.exports = {
-    updatePlayerTime: updatePlayerTime,
-    fetchCustomPlayer: fetchCustomPlayer,
+export {
+    updatePlayerTime,
+    fetchCustomPlayer,
 }

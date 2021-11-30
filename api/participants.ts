@@ -26,7 +26,7 @@ var fetchParticipant = async function fetchParticipant(participantId: string): P
   return response.data;
 };
 
-module.exports ={
-	fetchParticipants: fetchParticipants,
-  fetchParticipant: fetchParticipant,
+export {
+	fetchParticipants,
+  fetchParticipant,
 }

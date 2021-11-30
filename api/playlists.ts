@@ -35,8 +35,8 @@ var fetchPlaylistContent = async function fetchPlaylistContent(playlistId: strin
 };
   
 
-  module.exports ={
-  fetchPlaylists: fetchPlaylists,
-  fetchPlaylist: fetchPlaylist,
-  fetchPlaylistContent: fetchPlaylistContent,
+export {
+  fetchPlaylists,
+  fetchPlaylist,
+  fetchPlaylistContent,
 }

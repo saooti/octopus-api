@@ -44,11 +44,11 @@ var fetchRootComments = async function fetchRootComments(parameters:FetchParam):
 	return response.data;
 };
 
-module.exports = {
-	postComment:postComment,
-	fetchCommentAnswers: fetchCommentAnswers,
-	fetchComments: fetchComments,
-	fetchRootComments: fetchRootComments,
-	fetchComment:fetchComment,
+export {
+	postComment,
+	fetchCommentAnswers,
+	fetchComments,
+	fetchRootComments,
+	fetchComment,
 }
  

@@ -2,6 +2,7 @@ import { Conference } from "../class/conference";
 
 const axios = require('axios');
 const init = require('../helper/init');
+const fetchHelper = require('../helper/fetch');
 
 var requestLiveDownloadId = async function requestLiveDownloadId(podcastId: number | undefined): Promise<string | null>{
   let uri = init.octopusSdk.url + 'podcast/prepare/live/' + podcastId;
@@ -44,9 +45,9 @@ var getRealConferenceStatus = async function getRealConferenceStatus(conferenceI
 }
 
 
-module.exports ={
-	requestLiveDownloadId: requestLiveDownloadId,
-	markPlayingLive: markPlayingLive,
-  listConferences: listConferences,
-  getRealConferenceStatus: getRealConferenceStatus
+export {
+	requestLiveDownloadId,
+	markPlayingLive,
+  listConferences,
+  getRealConferenceStatus
 }
