@@ -63,3 +63,5 @@ Update axios
 # 0.29.1
 Typescript
 
+# 0.30.0
+Ajout des types et de l'authentification
