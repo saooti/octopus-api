@@ -1,13 +1,21 @@
+import { Emission } from "../class/emission";
+import { FetchParam } from "../class/fetchParam";
+
 const axios = require('axios');
 const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
-var fetchEmissions = async function fetchEmissions(parameters): Promise<any> {
+
+var fetchEmissions = async function fetchEmissions(parameters: FetchParam): Promise<{
+  count: number;
+  result:Array<Emission>;
+  sort: string;}> {
+  const header = await fetchHelper.createAuthenticatedFetchHeader();
   if(init.octopusSdk.organisationId && !parameters.organisationId){
     parameters.organisationId = init.octopusSdk.organisationId;
   }
   const params = fetchHelper.getUriSearchParams(parameters);
   let uri = init.octopusSdk.url +'emission/search?' +params.toString();
-  const response = await axios.get(uri);
+  const response = await axios.get(uri, { headers: { ...header } });
   return response.data;
 };
 
@@ -19,9 +27,10 @@ var fetchEmissionPath = function fetchEmissionPath(emissionId: number|undefined)
   return init.octopusSdk.url +  'emission/' + emissionId;
 };
 
-var fetchItuneCategory = async function fetchItuneCategory(iabId: string): Promise<any>{
+var fetchItuneCategory = async function fetchItuneCategory(iabId: string): Promise<string>{
+  const header = await fetchHelper.createAuthenticatedFetchHeader();
   let uri = init.octopusSdk.url + 'emission/itunes/' + iabId;
-  const response :any = await axios.get(uri);
+  const response = await axios.get(uri, { headers: { ...header } });
   if(response.data.level2){
     return response.data.level1+" "+response.data.level2;
   }else{
@@ -29,9 +38,10 @@ var fetchItuneCategory = async function fetchItuneCategory(iabId: string): Promi
   }
 };
 
-var fetchEmission = async function fetchEmission(emissionId: number|undefined): Promise<any> {
+var fetchEmission = async function fetchEmission(emissionId: number|undefined): Promise<Emission> {
+  const header = await fetchHelper.createAuthenticatedFetchHeader();
   const uri = init.octopusSdk.url + 'emission/' + emissionId;
-  const response = await axios.get(uri);
+  const response = await axios.get(uri, { headers: { ...header } });
   return response.data;
 };
 

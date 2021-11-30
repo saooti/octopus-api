@@ -1,25 +1,25 @@
+import { Category } from "../class/category";
+import { FetchParam } from "../class/fetchParam";
+
 const axios = require('axios');
 const fetchHelper = require('../helper/fetch');
 const init = require('../helper/init');
 
-var fetchCategories = async function fetchCategories(parameters: any): Promise<any> {
+var fetchCategories = async function fetchCategories(parameters: FetchParam, organisationId?: string): Promise<Array<Category>> {
+  const header = await fetchHelper.createAuthenticatedFetchHeader();
   const params = fetchHelper.getUriSearchParams(parameters);
-  let uri = init.octopusSdk.url + 'iab/list' + '?' + params.toString();
-  if(init.octopusSdk.organisationId){
-    uri = init.octopusSdk.url + 'iab/list/'+ init.octopusSdk.organisationId + '?' + params.toString();
+  let orgaId = '';
+  if(organisationId){
+    orgaId = organisationId;
+  }else if(init.octopusSdk.organisationId){
+    orgaId = init.octopusSdk.organisationId;
   }
-  const response = await axios.get(uri);
+  let uri = init.octopusSdk.url + 'iab/list' +orgaId+ '?' + params.toString();
+  const response = await axios.get(uri, {
+    headers: { 'Content-Type': 'application/json; charset=utf-8', ...header },
+  });
   return response.data;
 };
-
-var fetchCategoriesOrga = async function fetchCategories(organisationId: string, parameters: any): Promise<any> {
-  const params = fetchHelper.getUriSearchParams(parameters);
-  let uri = init.octopusSdk.url + 'iab/list/'+ organisationId + '?' + params.toString();
-  const response = await axios.get(uri);
-  return response.data;
-};
-
 module.exports = {
   fetchCategories: fetchCategories,
-  fetchCategoriesOrga: fetchCategoriesOrga,
 }

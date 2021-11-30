@@ -16,6 +16,7 @@ var getUriSearchParams = function getUriSearchParams(parameters) {
 
 var createAuthenticatedFetchHeader = function createAuthenticatedFetchHeader() {
   return new Promise((resolve) => {
+    if(!init.octopusSdk.oAuthParam){resolve(undefined);}
     const currentTime = moment();
     const expirationDate = moment(init.octopusSdk.oAuthParam.expiration);
     if (currentTime.isAfter(expirationDate)) {
