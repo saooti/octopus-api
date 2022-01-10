@@ -65,3 +65,4 @@ Typescript
 
 # 0.30.0
 Ajout des types et de l'authentification
+Erreur getRealConferenceStatus

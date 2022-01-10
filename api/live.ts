@@ -41,7 +41,7 @@ var getRealConferenceStatus = async function getRealConferenceStatus(conferenceI
   const header = await fetchHelper.createAuthenticatedFetchHeader();
   let uri = init.octopusSdk.studioUrl + 'conference/realstatus/' + conferenceId;
   const response = await axios.get(uri, { headers: { ...header } });
-  return response;
+  return response.data;
 }
 
 
