@@ -13,6 +13,12 @@ sort: string;}> {
   if(init.octopusSdk.organisationId && !parameters.organisationId){
     parameters.organisationId = init.octopusSdk.organisationId;
   }
+  if(init.octopusSdk.rubriqueIdFilter){
+		if(!parameters.rubriqueId){
+			parameters.rubriqueId = [];
+		}
+		parameters.rubriqueId = parameters.rubriqueId.concat(init.octopusSdk.rubriqueIdFilter);
+	}
   const params = fetchHelper.getUriSearchParams(parameters);
   let uri = init.octopusSdk.url + 'participant/search?' + params.toString();
   const response = await axios.get(uri, { headers: { ...header } });

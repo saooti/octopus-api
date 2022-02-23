@@ -24,6 +24,12 @@ var fetchPodcasts = async function fetchPodcasts(parameters: FetchParam, notLive
 	if(init.octopusSdk.organisationId && !parameters.organisationId){
 		parameters.organisationId = init.octopusSdk.organisationId;
 	}
+	if(init.octopusSdk.rubriqueIdFilter){
+		if(!parameters.rubriqueId){
+			parameters.rubriqueId = [];
+		}
+		parameters.rubriqueId = parameters.rubriqueId.concat(init.octopusSdk.rubriqueIdFilter);
+	}
     let params = fetchHelper.getUriSearchParams(parameters).toString();
     if (parameters.includeHidden && undefined!==header) {
 		const paramString = [params];
@@ -49,6 +55,12 @@ var fetchLives = async function fetchLives(parameters: FetchParam): Promise<{
 	const header = await fetchHelper.createAuthenticatedFetchHeader();
 	if(init.octopusSdk.organisationId && !parameters.organisationId){
 		parameters.organisationId = init.octopusSdk.organisationId;
+	}
+	if(init.octopusSdk.rubriqueIdFilter){
+		if(!parameters.rubriqueId){
+			parameters.rubriqueId = [];
+		}
+		parameters.rubriqueId = parameters.rubriqueId.concat(init.octopusSdk.rubriqueIdFilter);
 	}
 	const params = fetchHelper.getUriSearchParams(parameters);
 	let uri = init.octopusSdk.url + 'podcast/search?' + params.toString() + '&includeStatus=READY_TO_RECORD';

@@ -66,3 +66,5 @@ Typescript
 # 0.30.0
 Ajout des types et de l'authentification
 Erreur getRealConferenceStatus
+# 0.30.4
+Ajout rubriqueIdFilter

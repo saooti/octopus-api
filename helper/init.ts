@@ -5,6 +5,7 @@ var octopusSdk = {
 	playerUrl : "https://playerbeta.dev2.saooti.org/",
 	organisationId : undefined,
 	oAuthParam: undefined,
+	rubriqueIdFilter: undefined
 };
 
 var initialize = function initialize(initObject){
@@ -24,6 +25,9 @@ var initialize = function initialize(initObject){
 		}
 		if(initObject.playerUrl){
 			octopusSdk.playerUrl = initObject.playerUrl;
+		}
+		if(initObject.rubriqueIdFilter){
+			octopusSdk.rubriqueIdFilter = initObject.rubriqueIdFilter;
 		}
 		return;
 	} else{
