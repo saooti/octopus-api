@@ -16,4 +16,5 @@ export interface Organisation{
   notSeenOnKeycloak?: number;
   score?: number;
   soundcastId?: string;
+  private?:boolean;
 }

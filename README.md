@@ -68,3 +68,6 @@ Ajout des types et de l'authentification
 Erreur getRealConferenceStatus
 # 0.30.4
 Ajout rubriqueIdFilter
+
+# 0.31.0
+Début sécurisation

@@ -30,4 +30,5 @@ export interface FetchParam{
     listening?: string,
     top?: number,
     homePageOrder?:boolean,
+    includePrivate?: string,
   }
