@@ -6,4 +6,5 @@ export interface Rubriquage {
   rubriques: Array<Rubrique>;
   title: string;
   homePageOrder?: number | null;
+  organisationPrivacy?:string;
 }

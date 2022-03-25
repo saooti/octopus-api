@@ -71,3 +71,5 @@ Ajout rubriqueIdFilter
 
 # 0.31.0
 Début sécurisation
+# 0.31.1
+Mise à jour class typescript
