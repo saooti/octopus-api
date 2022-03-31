@@ -24,8 +24,9 @@ var fetchOrganisation = async function fetchOrganisation(productorId: string): P
 };
 
 var liveEnabledOrganisation = async function liveEnabledOrganisation(productorId: string): Promise<boolean> {
+  const header = await fetchHelper.createAuthenticatedFetchHeader();
   let uri = init.octopusSdk.url + 'organisation/liveEnabled/' + productorId;
-  const response = await axios.get(uri);
+  const response = await axios.get(uri, { headers: { ...header } });
   return response.data;
 };
 var fetchOrganisationAttributes = async function fetchOrganisationAttributes(productorId: string): Promise<{[key:string]:string}> {

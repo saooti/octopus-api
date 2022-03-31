@@ -73,3 +73,5 @@ Ajout rubriqueIdFilter
 Début sécurisation
 # 0.31.1
 Mise à jour class typescript
+# 0.31.2
+Sécurisation liveEnabled with headers
