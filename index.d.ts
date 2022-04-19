@@ -43,6 +43,7 @@ export interface ApiStatic {
         sort: string;}>;
     fetchParticipant(participantId: string): Promise<Participant>;
     updatePlayerTime(downloadId: any, seconds:number): Promise<any>;
+    fetchPodcastDownloadUrl(url:string): Promise<{location:string, downloadId: number}>;
     fetchCustomPlayer(getPlayerPath:string): Promise<any>;
     fetchPlaylists(parameters: FetchParam): Promise<{
         count: number;

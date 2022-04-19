@@ -68,6 +68,8 @@ Ajout des types et de l'authentification
 Erreur getRealConferenceStatus
 # 0.30.4
 Ajout rubriqueIdFilter
+# 0.30.5
+Player download url
 
 # 0.31.0
 Début sécurisation
@@ -75,3 +77,5 @@ Début sécurisation
 Mise à jour class typescript
 # 0.31.2
 Sécurisation liveEnabled with headers
+# 0.31.3
+Merge release 30

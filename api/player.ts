@@ -14,7 +14,14 @@ var fetchCustomPlayer = async function fetchCustomPlayer(getPlayerPath:string): 
     });
     return response.data;
 };
+
+var fetchPodcastDownloadUrl = async function fetchPodcastDownloadUrl(url:string): Promise<{location:string, downloadId: number}> {
+    let uri = init.octopusSdk.url + url;
+    const response = await axios.get(uri);
+    return response.data;
+};
 export {
+    fetchPodcastDownloadUrl,
     updatePlayerTime,
     fetchCustomPlayer,
 }
