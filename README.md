@@ -79,3 +79,5 @@ Mise à jour class typescript
 Sécurisation liveEnabled with headers
 # 0.31.3
 Merge release 30
+# 0.31.4
+Premier classicCrud

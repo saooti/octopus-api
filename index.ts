@@ -10,4 +10,5 @@ module.exports = {
 	...require('./helper/init'),
 	...require('./api/comments'),
 	...require('./api/playlists'),
+	...require('./api/classicCrud'),
 };

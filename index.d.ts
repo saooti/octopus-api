@@ -64,6 +64,7 @@ export interface ApiStatic {
     fetchTopic(rubriquageId: number | undefined): Promise<Rubriquage>;
     fetchRubric(rubriqueId: number | undefined): Promise<Rubrique>;
     searchRubrics(parameters: FetchParam|undefined): Promise<Array<Rubrique>>;
+    fetchDataPublic<Type>(wsPath:string): Promise<Type>;
     octopusSdk:{
         url : string,
         commentsUrl : string,
