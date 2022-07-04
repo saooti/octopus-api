@@ -83,3 +83,5 @@ Merge release 30
 Premier classicCrud
 # 0.31.6
 Test API crud
+# 0.31.7
+API crud

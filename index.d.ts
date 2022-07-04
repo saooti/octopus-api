@@ -15,59 +15,6 @@ import { ModuleApi } from "./class/moduleApi";
 import { Parameters } from "./class/parameters";
 
 export interface ApiStatic {
-    fetchCategories(parameters: FetchParam, organisationId?: string): Promise<Array<Category>>;
-    postComment(comment: CommentPodcast): Promise<CommentPodcast>;
-    fetchCommentAnswers(commentId: number,parameters:FetchParam): Promise<InterfacePageable<CommentPodcast>>;
-    fetchComments(parameters:FetchParam): Promise<InterfacePageable<CommentPodcast>>;
-    fetchComment(comId: number): Promise<CommentPodcast>;
-    fetchRootComments(parameters:FetchParam): Promise<InterfacePageable<CommentPodcast>>;
-    fetchEmissions(parameters: FetchParam): Promise<{
-        count: number;
-        result:Array<Emission>;
-        sort: string;}>;
-    fetchRSS(emissionId: number|undefined): string;
-    fetchEmissionPath(emissionId: number|undefined): string;
-    fetchItuneCategory(iabId: string): Promise<string>;
-    fetchEmission(emissionId: number|undefined): Promise<Emission>;
-    requestLiveDownloadId(podcastId: number | undefined): Promise<string | null>;
-    markPlayingLive(podcastId: number | undefined, downloadId: string | null, origin: string, distributorId: any): Promise<string | null>;
-    listConferences(organisationId: string, withPodcastId?: boolean,status?:string): Promise<Array<Conference>>;
-    getRealConferenceStatus(conferenceId: string) : Promise<string>;
-    fetchOrganisations(parameters: FetchParam): Promise<{
-        count: number;
-        result: Array<Organisation>;
-        sort: string;}>;
-    fetchOrganisation(productorId: string): Promise<Organisation>;
-    liveEnabledOrganisation(productorId: string): Promise<boolean>;
-    fetchOrganisationAttributes(productorId: string): Promise<{[key:string]:string}>;
-    fetchParticipants(parameters: FetchParam): Promise<{
-        count: number;
-        result: Array<Participant>;
-        sort: string;}>;
-    fetchParticipant(participantId: string): Promise<Participant>;
-    updatePlayerTime(downloadId: any, seconds:number): Promise<any>;
-    fetchPodcastDownloadUrl(url:string): Promise<{location:string, downloadId: number}>;
-    fetchCustomPlayer(getPlayerPath:string): Promise<any>;
-    fetchPlaylists(parameters: FetchParam): Promise<{
-        count: number;
-        result: Array<Playlist>;
-      sort: string;}>;
-    fetchPlaylist(playlistId: string): Promise<Playlist>;
-    fetchPlaylistContent(playlistId: string): Promise<Array<Podcast>>;
-    fetchPodcast(podcastId: string): Promise<Podcast>;
-    fetchPodcasts(parameters: FetchParam, notLive?:boolean):Promise<{
-        count: number;
-        result: Array<Podcast>;
-          sort: string;}>;
-    fetchLives(parameters: FetchParam): Promise<{
-        count: number;
-        result: Array<Podcast>;
-        sort: string;}>;
-    fetchTopics(organisationId:string|undefined, parameters: FetchParam|undefined): Promise<Array<Rubriquage>>;
-    fetchTopic(rubriquageId: number | undefined): Promise<Rubriquage>;
-    fetchRubric(rubriqueId: number | undefined): Promise<Rubrique>;
-    searchRubrics(parameters: FetchParam|undefined): Promise<Array<Rubrique>>;
-    
     fetchData<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
 	fetchDataPublic<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
     fetchDataWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, specialTreatement?:boolean): Promise<Type>
@@ -75,8 +22,6 @@ export interface ApiStatic {
     postDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
     putDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
     
-
-
     octopusSdk:{
         url : string,
         commentsUrl : string,
