@@ -11,6 +11,9 @@ import { Podcast } from "./class/podcast";
 import { Rubriquage } from "./class/rubriquage";
 import { Rubrique } from "./class/rubrique";
 
+import { ModuleApi } from "./class/moduleApi";
+import { Parameters } from "./class/parameters";
+
 export interface ApiStatic {
     fetchCategories(parameters: FetchParam, organisationId?: string): Promise<Array<Category>>;
     postComment(comment: CommentPodcast): Promise<CommentPodcast>;
@@ -64,7 +67,16 @@ export interface ApiStatic {
     fetchTopic(rubriquageId: number | undefined): Promise<Rubriquage>;
     fetchRubric(rubriqueId: number | undefined): Promise<Rubrique>;
     searchRubrics(parameters: FetchParam|undefined): Promise<Array<Rubrique>>;
-    fetchDataPublic<Type>(wsPath:string): Promise<Type>;
+    
+    fetchData<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
+	fetchDataPublic<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
+    fetchDataWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, specialTreatement?:boolean): Promise<Type>
+    fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters): Promise<Type>;
+    postDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
+    putDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
+    
+
+
     octopusSdk:{
         url : string,
         commentsUrl : string,

@@ -81,3 +81,5 @@ Sécurisation liveEnabled with headers
 Merge release 30
 # 0.31.5
 Premier classicCrud
+# 0.31.6
+Test API crud
