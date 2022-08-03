@@ -1,6 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
-import init from '../helper/init';
+import {octopusSdk} from '../helper/init';
 
 var getUriSearchParams = function getUriSearchParams(parameters) {
   const keys = Object.keys(parameters);
@@ -16,22 +16,22 @@ var getUriSearchParams = function getUriSearchParams(parameters) {
 
 var createAuthenticatedFetchHeader = function createAuthenticatedFetchHeader() {
   return new Promise((resolve) => {
-    if(!init.octopusSdk.oAuthParam){resolve(undefined);}
+    if(!octopusSdk.oAuthParam){resolve(undefined);}
     const currentTime = moment();
-    const expirationDate = moment(init.octopusSdk.oAuthParam.expiration);
+    const expirationDate = moment(octopusSdk.oAuthParam.expiration);
     if (currentTime.isAfter(expirationDate)) {
       refreshToken().then((data: any) => {
         if (data) {
-          init.octopusSdk.oAuthParam.expiration = new Date(
+          octopusSdk.oAuthParam.expiration = new Date(
             Date.now() + data.expires_in * 1000
           );
-          init.octopusSdk.oAuthParam.accessToken = data.access_token;
-          init.octopusSdk.oAuthParam.refreshToken = data.refresh_token;
+          octopusSdk.oAuthParam.accessToken = data.access_token;
+          octopusSdk.oAuthParam.refreshToken = data.refresh_token;
           resolve({ Authorization: 'Bearer ' + data.access_token });
         }
       });
     } else {
-      const bearerToken = init.octopusSdk.oAuthParam.accessToken;
+      const bearerToken = octopusSdk.oAuthParam.accessToken;
       resolve({ Authorization: 'Bearer ' + bearerToken });
     }
   });
@@ -41,11 +41,11 @@ var refreshToken = function refreshToken() {
   return new Promise((resolve, reject) => {
     const params =
       'refresh_token=' +
-      init.octopusSdk.oAuthParam.refreshToken +
+      octopusSdk.oAuthParam.refreshToken +
       '&grant_type=refresh_token' +
       '&client_id=' +
-      init.octopusSdk.oAuthParam.clientId;
-    const uri = init.octopusSdk.oAuthParam.accessTokenUri;
+      octopusSdk.oAuthParam.clientId;
+    const uri = octopusSdk.oAuthParam.accessTokenUri;
     axios
       .post(uri, params, {
         headers: { 'content-type': 'application/x-www-form-urlencoded' },

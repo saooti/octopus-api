@@ -2,31 +2,31 @@ import { ModuleApi } from "../class/moduleApi";
 import { Parameters } from "../class/parameters";
 
 import axios from 'axios';
-import init from '../helper/init';
+import {octopusSdk} from '../helper/init';
 import fetchHelper from '../helper/fetch';
 
 
 function getApiUrl(moduleName:ModuleApi){
   switch (moduleName) {
-    case 2: return init.octopusSdk.commentsUrl;
+    case 2: return octopusSdk.commentsUrl;
     case 4: return '';
-    case 6: return init.octopusSdk.playerUrl;
-    case 9: return init.octopusSdk.studioUrl;
-    default: return init.octopusSdk.url;
+    case 6: return octopusSdk.playerUrl;
+    case 9: return octopusSdk.studioUrl;
+    default: return octopusSdk.url;
   }
 };
 function adjustParameters(parameters: Parameters, isPodcast = false, header?:string){
   if (isPodcast && (!parameters.includeHidden || undefined===header)) {
 		parameters.validity = true;
 	}
-  if(init.octopusSdk.organisationId && !parameters.organisationId){
-    parameters.organisationId = init.octopusSdk.organisationId;
+  if(octopusSdk.organisationId && !parameters.organisationId){
+    parameters.organisationId = octopusSdk.organisationId;
   }
-  if(init.octopusSdk.rubriqueIdFilter){
+  if(octopusSdk.rubriqueIdFilter){
 		if(!parameters.rubriqueId){
 			parameters.rubriqueId = [];
 		}
-		parameters.rubriqueId = (parameters.rubriqueId as Array<number>).concat(init.octopusSdk.rubriqueIdFilter);
+		parameters.rubriqueId = (parameters.rubriqueId as Array<number>).concat(octopusSdk.rubriqueIdFilter);
 	}
   return parameters
 }
