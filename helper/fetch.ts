@@ -1,6 +1,6 @@
-const axios = require('axios');
-const moment = require('moment');
-const init = require('../helper/init');
+import axios from 'axios';
+import moment from 'moment';
+import init from '../helper/init';
 
 var getUriSearchParams = function getUriSearchParams(parameters) {
   const keys = Object.keys(parameters);
@@ -61,7 +61,7 @@ var refreshToken = function refreshToken() {
 };
 
 
-module.exports ={
+export default {
   getUriSearchParams: getUriSearchParams,
   createAuthenticatedFetchHeader: createAuthenticatedFetchHeader,
 }

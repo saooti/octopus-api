@@ -1,9 +1,9 @@
 import { ModuleApi } from "../class/moduleApi";
 import { Parameters } from "../class/parameters";
 
-const axios = require('axios');
-const init = require('../helper/init');
-const fetchHelper = require('../helper/fetch');
+import axios from 'axios';
+import init from '../helper/init';
+import fetchHelper from '../helper/fetch';
 
 
 function getApiUrl(moduleName:ModuleApi){
