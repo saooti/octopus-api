@@ -35,7 +35,7 @@ var initialize = function initialize(initObject){
 	}
 };
 
-export default {
-	initialize: initialize,
-	octopusSdk: octopusSdk
+export {
+	initialize,
+	octopusSdk
 }
