@@ -2,7 +2,6 @@ var octopusSdk = {
 	url : "https://api.dev2.saooti.org/",
 	commentsUrl : "https://comments.dev2.saooti.org/",
 	studioUrl: "https://studio.dev2.saooti.org/",
-	imageUrl: "https://imageproxy.dev2.saooti.org/",
 	playerUrl : "https://playerbeta.dev2.saooti.org/",
 	organisationId : undefined,
 	oAuthParam: undefined,
@@ -26,9 +25,6 @@ var initialize = function initialize(initObject){
 		}
 		if(initObject.playerUrl){
 			octopusSdk.playerUrl = initObject.playerUrl;
-		}
-		if(initObject.imageUrl){
-			octopusSdk.imageUrl = initObject.imageUrl;
 		}
 		if(initObject.rubriqueIdFilter){
 			octopusSdk.rubriqueIdFilter = initObject.rubriqueIdFilter;

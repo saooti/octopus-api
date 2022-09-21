@@ -12,7 +12,6 @@ function getApiUrl(moduleName:ModuleApi){
     case 4: return '';
     case 6: return octopusSdk.playerUrl;
     case 9: return octopusSdk.studioUrl;
-    case 11: return octopusSdk.imageUrl;
     default: return octopusSdk.url;
   }
 };
