@@ -27,6 +27,7 @@ export interface ApiStatic {
         commentsUrl : string,
         studioUrl: string,
         playerUrl : string,
+        imageUrl : string,
         organisationId : any,
         oAuthParam: any,
     };
