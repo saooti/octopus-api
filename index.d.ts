@@ -27,6 +27,7 @@ export interface ApiStatic {
         commentsUrl : string,
         studioUrl: string,
         playerUrl : string,
+        speechToTextUrl : string,
         organisationId : any,
         oAuthParam: any,
     };

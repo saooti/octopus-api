@@ -10,5 +10,5 @@ export enum ModuleApi {
     STORAGE = 8,
     STUDIO = 9,
     PROCESSOR= 10,
-    IMAGE=11
+    SPEECHTOTEXT=11
 }
