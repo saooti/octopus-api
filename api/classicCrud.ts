@@ -13,6 +13,7 @@ function getApiUrl(moduleName:ModuleApi){
     case 6: return octopusSdk.playerUrl;
     case 9: return octopusSdk.studioUrl;
     case 11: return octopusSdk.speechToTextUrl;
+    case 13: return octopusSdk.recoUrl;
     default: return octopusSdk.url;
   }
 };

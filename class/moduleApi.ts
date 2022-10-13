@@ -1,4 +1,4 @@
-export enum ModuleApi {
+const enum ModuleApi {
     DEFAULT = 0,
     MEDIA = 1,
     COMMENT = 2,
@@ -10,5 +10,7 @@ export enum ModuleApi {
     STORAGE = 8,
     STUDIO = 9,
     PROCESSOR= 10,
-    SPEECHTOTEXT=11
-}
+    SPEECHTOTEXT=11,
+    VIDEOMAKER=12,
+    RECOMMENDATION=13
+  }

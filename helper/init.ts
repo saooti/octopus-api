@@ -4,6 +4,7 @@ var octopusSdk = {
 	studioUrl: "https://studio.dev2.saooti.org/",
 	playerUrl : "https://playerbeta.dev2.saooti.org/",
 	speechToTextUrl:'https://speech2text.dev2.saooti.org/',
+	recoUrl:'https://reco.dev2.saooti.org/',
 	organisationId : undefined,
 	oAuthParam: undefined,
 	rubriqueIdFilter: undefined
@@ -29,6 +30,9 @@ var initialize = function initialize(initObject){
 		}
 		if(initObject.speechToTextUrl){
 			octopusSdk.speechToTextUrl = initObject.speechToTextUrl;
+		}
+		if(initObject.recoUrl){
+			octopusSdk.recoUrl = initObject.recoUrl;
 		}
 		if(initObject.rubriqueIdFilter){
 			octopusSdk.rubriqueIdFilter = initObject.rubriqueIdFilter;
