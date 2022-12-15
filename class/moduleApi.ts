@@ -12,5 +12,6 @@ const enum ModuleApi {
     PROCESSOR= 10,
     SPEECHTOTEXT=11,
     VIDEOMAKER=12,
-    RECOMMENDATION=13
+    RECOMMENDATION=13,
+    RADIO=14
   }

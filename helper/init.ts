@@ -5,6 +5,7 @@ var octopusSdk = {
 	playerUrl : "https://playerbeta.dev2.saooti.org/",
 	speechToTextUrl:'https://speech2text.dev2.saooti.org/',
 	recoUrl:'https://reco.dev2.saooti.org/',
+	radioUrl:'https://radio.dev2.saooti.org/',
 	organisationId : undefined,
 	oAuthParam: undefined,
 	rubriqueIdFilter: undefined
@@ -33,6 +34,9 @@ var initialize = function initialize(initObject){
 		}
 		if(initObject.recoUrl){
 			octopusSdk.recoUrl = initObject.recoUrl;
+		}
+		if(initObject.radioUrl){
+			octopusSdk.radioUrl = initObject.radioUrl;
 		}
 		if(initObject.rubriqueIdFilter){
 			octopusSdk.rubriqueIdFilter = initObject.rubriqueIdFilter;

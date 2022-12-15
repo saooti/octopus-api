@@ -29,6 +29,7 @@ export interface ApiStatic {
         playerUrl : string,
         speechToTextUrl : string,
         recoUrl : string,
+        radioUrl: string,
         organisationId : any,
         oAuthParam: any,
     };

@@ -14,6 +14,7 @@ function getApiUrl(moduleName:ModuleApi){
     case 9: return octopusSdk.studioUrl;
     case 11: return octopusSdk.speechToTextUrl;
     case 13: return octopusSdk.recoUrl;
+    case 14: return octopusSdk.radioUrl;
     default: return octopusSdk.url;
   }
 };
