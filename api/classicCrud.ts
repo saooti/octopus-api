@@ -1,5 +1,5 @@
-import { ModuleApi } from "../class/moduleApi";
-import { Parameters } from "../class/parameters";
+import { ModuleApi } from '../class/moduleApi';
+import { Parameters } from '../class/parameters';
 
 import axios from 'axios';
 import {octopusSdk} from '../helper/init';
@@ -33,19 +33,6 @@ function adjustParameters(parameters: Parameters, isPodcast = false, header?:str
 	}
   return parameters
 }
-function addParameters(params:string, parameters: Parameters){
-  if (parameters.includeHidden) {
-		const paramString = [params];
-		paramString.push(
-			'&includeStatus=READY&includeStatus=PLANNED&includeStatus=PROCESSING&includeStatus=ERROR'
-		);
-		if (!parameters.notLive) {
-			paramString.push('&includeStatus=READY_TO_RECORD');
-		}
-		params = paramString.join('');
-  }
-  return params;
-}
 var fetchDataPublic =  async function fetchDataPublic<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type> {
   const url = getApiUrl(moduleName) + wsPath;
   const response = await axios.get(url);
@@ -68,10 +55,13 @@ var fetchDataWithParams = async function fetchDataWithParams<Type>(moduleName: M
   if(specialTreatement){
     parameters = adjustParameters(parameters, wsPath.includes('podcast/search'), header);
   }
-  let params = fetchHelper.getUriSearchParams(parameters).toString();
   if(specialTreatement && wsPath.includes('podcast/search')&& undefined!==header){
-    params = addParameters(params, parameters);
+    parameters.includeStatus = ['READY', 'PLANNED', 'PROCESSING', 'ERROR'];
+    if (!parameters.notLive) {
+      parameters.includeStatus.push('READY_TO_RECORD');
+    }
   }
+  let params = fetchHelper.getUriSearchParams(parameters).toString();
   const url = getApiUrl(moduleName) + wsPath+ '?' + params;
   const response = await axios.get(url,{headers: header});
   return response.data;
