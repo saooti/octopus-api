@@ -55,7 +55,7 @@ var fetchDataWithParams = async function fetchDataWithParams<Type>(moduleName: M
   if(specialTreatement){
     parameters = adjustParameters(parameters, wsPath.includes('podcast/search'), header);
   }
-  if(specialTreatement && wsPath.includes('podcast/search')&& undefined!==header){
+  if(specialTreatement && wsPath.includes('podcast/search')&& undefined!==header && parameters.includeHidden){
     parameters.includeStatus = ['READY', 'PLANNED', 'PROCESSING', 'ERROR'];
     if (!parameters.notLive) {
       parameters.includeStatus.push('READY_TO_RECORD');
