@@ -22,7 +22,7 @@ function adjustParameters(parameters: Parameters, isPodcast = false, header?:str
   if (isPodcast && (!parameters.includeHidden || undefined===header)) {
 		parameters.validity = true;
 	}
-  if(octopusSdk.organisationId && !parameters.organisationId){
+  if(octopusSdk.organisationId && (!parameters.organisationId || !(parameters.organisationId as Array<string>)?.length)){
     parameters.organisationId = octopusSdk.organisationId;
   }
   if(octopusSdk.rubriqueIdFilter){
