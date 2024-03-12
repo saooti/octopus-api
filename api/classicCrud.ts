@@ -44,10 +44,14 @@ var fetchData =  async function fetchData<Type>(moduleName:ModuleApi, wsPath:str
   const response = await axios.get(url,{headers: header});
   return response.data;
 };
-var fetchDataPublicWithParams = async function fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters): Promise<Type> {
+var fetchDataPublicWithParams = async function fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, headers?:{[key: string]: string}): Promise<Type> {
   const params = fetchHelper.getUriSearchParams(parameters);
   const url = getApiUrl(moduleName) + wsPath+ '?' + params.toString();
-  const response = await axios.get(url);
+  let headersToSend = undefined;
+  if(headers){
+    headersToSend = { headers: headers}
+  }
+  const response = await axios.get(url, headersToSend);
   return response.data;
 }
 var fetchDataWithParams = async function fetchDataWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, specialTreatement=false): Promise<Type> {

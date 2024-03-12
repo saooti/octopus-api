@@ -18,7 +18,7 @@ export interface ApiStatic {
     fetchData<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
 	fetchDataPublic<Type>(moduleName:ModuleApi, wsPath:string): Promise<Type>;
     fetchDataWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, specialTreatement?:boolean): Promise<Type>
-    fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters): Promise<Type>;
+    fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, headers?: {[key: string]: string}): Promise<Type>;
     postDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
     putDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
     
