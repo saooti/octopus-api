@@ -24,7 +24,7 @@ function adjustParameters(parameters: Parameters, isPodcast = false, header?:str
 	}
   if(octopusSdk.organisationId && (!parameters.organisationId || !(parameters.organisationId as Array<string>)?.length)){
     parameters.organisationId = octopusSdk.organisationId;
-  }else if(1===(parameters.organisationId as Array<string>).length && ""===parameters.organisationId[0]){
+  }else if(parameters.organisationId && Array.isArray(parameters.organisationId)&& 1===(parameters.organisationId as Array<string>).length && ""===parameters.organisationId[0]){
     parameters.organisationId = undefined;
   }
 
