@@ -21,6 +21,7 @@ export interface ApiStatic {
     fetchDataPublicWithParams<Type>(moduleName: ModuleApi, wsPath:string, parameters: Parameters, headers?: {[key: string]: string}): Promise<Type>;
     postDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
     putDataPublic<Type>(moduleName: ModuleApi,wsPath:string, elementToPost: unknown): Promise<Type>;
+    deleteData(moduleName: ModuleApi, wsPath:string, parameters: Parameters):Promise<void>;
     
     octopusSdk:{
         url : string,

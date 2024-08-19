@@ -83,11 +83,17 @@ var putDataPublic = async function putDataPublic<Type>(moduleName: ModuleApi,wsP
   const response = await axios.put(url,elementToPost,{headers:{'Content-Type': 'application/json; charset=utf-8'} });
   return response.data;
 };
+var deleteData = async function deleteData(moduleName: ModuleApi, wsPath:string, parameters: Parameters):Promise<void> {
+  const params = fetchHelper.getUriSearchParams(parameters);
+  const url = getApiUrl(moduleName) + wsPath+ '?' + params.toString();
+  await axios.get(url);
+}
 export {
   fetchData,
 	fetchDataPublic,
   fetchDataWithParams,
   fetchDataPublicWithParams,
   postDataPublic,
-  putDataPublic
+  putDataPublic,
+  deleteData
 }
